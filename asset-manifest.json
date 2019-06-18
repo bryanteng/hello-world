@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/hello-world/static/css/main.f9c67ae1.chunk.css",
+    "main.js": "/hello-world/static/js/main.6a94f622.chunk.js",
+    "main.js.map": "/hello-world/static/js/main.6a94f622.chunk.js.map",
+    "runtime~main.js": "/hello-world/static/js/runtime~main.dc31fdf6.js",
+    "runtime~main.js.map": "/hello-world/static/js/runtime~main.dc31fdf6.js.map",
+    "static/js/2.b41502e9.chunk.js": "/hello-world/static/js/2.b41502e9.chunk.js",
+    "static/js/2.b41502e9.chunk.js.map": "/hello-world/static/js/2.b41502e9.chunk.js.map",
+    "index.html": "/hello-world/index.html",
+    "precache-manifest.b5e84e08952030b99b43dd2d3707a6e6.js": "/hello-world/precache-manifest.b5e84e08952030b99b43dd2d3707a6e6.js",
+    "service-worker.js": "/hello-world/service-worker.js",
+    "static/css/main.f9c67ae1.chunk.css.map": "/hello-world/static/css/main.f9c67ae1.chunk.css.map",
+    "static/media/logo.svg": "/hello-world/static/media/logo.5d5d9eef.svg"
+  }
+}
