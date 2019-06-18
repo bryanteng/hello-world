@@ -2,7 +2,7 @@
   "name": "hello-world",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bryanteng.github.com/hello-world/",
+  "homepage": "https://bryanteng.github.io/hello-world/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
