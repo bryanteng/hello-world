@@ -16,7 +16,7 @@ class carousels extends Component{
             <div>
                 <button onClick={this.addCarousel}>Add a carousel</button>
                 <div className="myCarousels">
-                    {this.state.carousels ? this.state.carousels.map((carousel,index) => <div className="carousel" id={index}>{carousel} </div>) : null}
+                    {this.state.carousels ? this.state.carousels.map((carousel,index) => <div className="carousel" key={index}>{carousel} </div>) : null}
                 </div>
             </div>
         )
