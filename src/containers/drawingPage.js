@@ -5,7 +5,7 @@ class drawingPage extends Component{
     render(){
         return(
             <div>
-                <div>drawing page</div>
+                <div>draw on me</div>
                 <CanvasComp/>
             </div>
         )

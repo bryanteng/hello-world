@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousels from './containers/carousels'
-import './App.css';
 import DrawingPage from './containers/drawingPage';
+import './App.css';
 
 function App() {
   return (

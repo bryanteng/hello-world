@@ -1,6 +1,5 @@
 import React, { Component} from 'react'
 import Carousel from '../components/carousel'
-import '../App.css'
 
 class carousels extends Component{
     state={
