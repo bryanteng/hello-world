@@ -10,13 +10,15 @@ export default class canvasComp extends Component{
     lineColor:'#000000',
     lineWidth: 3,
     showTools: false,
-    showColors: false
+    showColors: false,
+    showBackgroundColors: false,
+    backgroundColor: '#faebd7'
   }
 
-  componentDidMount(){
-    this.setState({width: window.innerWidth, height: window.innerHeight})
-    console.log(SketchPicker)
-  }
+    // componentDidMount(){
+    //   this.setState({width: window.innerWidth, height: window.innerHeight})
+    //   console.log(SketchPicker)
+    // }
 
   handleChange = (event) =>{
     this.setState({ [event.target.id]: event.target.value})
@@ -26,16 +28,12 @@ export default class canvasComp extends Component{
     this.setState({ tool: event.target.id })
   }
 
-  handleShowTools = () =>{
-    this.setState({showTools: !this.state.showTools})
+  changeColor = (event,state) =>{
+    this.setState({[state]: event.hex})
   }
 
-  handleShowColors = () =>{
-    this.setState({showColors: !this.state.showColors})
-  }
-
-  changeColor =(event)=>{
-    this.setState({lineColor: event.hex})
+  toggleShow = (event,state) =>{
+    this.setState({[event.target.id]: !state})
   }
   
   render(){
@@ -46,20 +44,28 @@ export default class canvasComp extends Component{
         tool={this.state.tool} 
         lineColor={this.state.lineColor}
         lineWidth={this.state.lineWidth}
+        backgroundColor={this.state.backgroundColor}
         undoSteps={1}/>
         <label>width:</label>
         <input type="text" value={this.state.width} id="width" onChange={this.handleChange} ></input>
         <label>height:</label>
         <input type="text" value={this.state.height} id="height" onChange={this.handleChange} ></input>
+        <label onClick={(event)=>this.toggleShow(event,this.state.showBackgroundColors)} id="showBackgroundColors">backgroundColor:</label>
+        {this.state.showBackgroundColors ? 
+        <SketchPicker 
+          color={this.state.backgroundColor}
+          onChange={(event)=>this.changeColor(event,"backgroundColor")}/>
+          :null}
         <br/>
-        <label onClick={this.handleShowColors}>{this.state.showColors ? "Click to hide colors" : "Click to show colors"}</label>
+        <label onClick={(event)=>this.toggleShow(event,this.state.showColors)} id="showColors">{this.state.showColors ? "Hide color picker" : "Show color picker"}</label>
+        <span className="dot" style={{backgroundColor: this.state.lineColor ? this.state.lineColor : null, height: this.state.lineWidth < 10 ? 10 : `${this.state.lineWidth}px`, width: this.state.lineWidth < 10 ? 10 : `${this.state.lineWidth}px`}}></span>
         {this.state.showColors ? 
           <SketchPicker 
           color={this.state.lineColor}
-          onChange={this.changeColor}/>
+          onChange={(event)=>this.changeColor(event,"lineColor")}/>
           : null }
         <br/>
-        <label onClick={this.handleShowTools}>{this.state.showTools ? "Click to hide tools" : "Click to show Tools"}</label>
+        <label onClick={(event)=>this.toggleShow(event,this.state.showTools)} id="showTools">{this.state.showTools ? "Click to hide tools" : "Click to show Tools"}</label>
         {this.state.showTools ? 
         <div>
           <button onClick={this.handleClick} id="pencil">pencil</button>

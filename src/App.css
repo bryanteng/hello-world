@@ -27,6 +27,13 @@
   border: 1px solid whitesmoke;
 } 
 
+.dot {
+  height: 3px;
+  width: 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 .current{
   color: aquamarine
