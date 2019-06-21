@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import {SketchField, Tools} from 'react-sketch';
+import { SketchPicker } from 'react-color'
 
 export default class canvasComp extends Component{
   state={
     width: '1024px', 
     height: '768px', 
     tool: Tools.Pencil, 
-    lineColor:'#E27300',
+    lineColor:'#000000',
     lineWidth: 3,
     showTools: false,
     showColors: false
@@ -14,6 +15,7 @@ export default class canvasComp extends Component{
 
   componentDidMount(){
     this.setState({width: window.innerWidth, height: window.innerHeight})
+    console.log(SketchPicker)
   }
 
   handleChange = (event) =>{
@@ -32,8 +34,8 @@ export default class canvasComp extends Component{
     this.setState({showColors: !this.state.showColors})
   }
 
-  handleColorClick = (event) =>{
-    this.setState({ lineColor: event.target.id })
+  changeColor =(event)=>{
+    this.setState({lineColor: event.hex})
   }
   
   render(){
@@ -52,16 +54,10 @@ export default class canvasComp extends Component{
         <br/>
         <label onClick={this.handleShowColors}>{this.state.showColors ? "Click to hide colors" : "Click to show colors"}</label>
         {this.state.showColors ? 
-        <div>
-          <button onClick={this.handleColorClick} id="red">red</button>
-          <button onClick={this.handleColorClick} id="orange">orange</button>
-          <button onClick={this.handleColorClick} id="yellow">yellow</button>
-          <button onClick={this.handleColorClick} id="green">green</button>
-          <button onClick={this.handleColorClick} id="blue">blue</button>
-          <button onClick={this.handleColorClick} id="indigo">indigo</button>
-          <button onClick={this.handleColorClick} id="violet">violet</button>
-        </div> 
-        : null}
+          <SketchPicker 
+          color={this.state.lineColor}
+          onChange={this.changeColor}/>
+          : null }
         <br/>
         <label onClick={this.handleShowTools}>{this.state.showTools ? "Click to hide tools" : "Click to show Tools"}</label>
         {this.state.showTools ? 
@@ -76,7 +72,7 @@ export default class canvasComp extends Component{
         : null}
         <br/>
         <label>Pencil Size</label>
-        <input type="range" min="1" max="10" value={this.state.lineWidth} onChange={this.handleChange} id="lineWidth"/><label>{this.state.lineWidth}</label>
+        <input type="range" min="1" max="20" value={this.state.lineWidth} onChange={this.handleChange} id="lineWidth"/><label>{this.state.lineWidth}</label>
 
       </div>
     )
