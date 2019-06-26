@@ -68,12 +68,7 @@ export default class canvasComp extends Component{
         <label onClick={(event)=>this.toggleShow(event,this.state.showTools)} id="showTools">{this.state.showTools ? "Click to hide tools" : "Click to show Tools"}</label>
         {this.state.showTools ? 
         <div>
-          <button onClick={this.handleClick} id="pencil">pencil</button>
-          <button onClick={this.handleClick} id="rectangle">rectangle</button>
-          <button onClick={this.handleClick} id="circle">circle</button>
-          <button onClick={this.handleClick} id="line">line</button>
-          <button onClick={this.handleClick} id="pan">pan</button>
-          <button onClick={this.handleClick} id="select">select</button>
+          {["pencil","rectangle","circle","line","pan","select"].map(tool=><button onClick={this.handleClick} id={tool}>{tool}</button>)}
         </div> 
         : null}
         <br/>
